@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:12:29 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/19 12:58:19 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/20 21:24:39 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_count_word(char *str)
 	return (j);
 }
 
-char	*ft_substr(char *str, int start, int end)
+char	*ft_substr_2(char *str, int start, int end)
 {
 	int		j;
 	char	*ret;
@@ -71,7 +71,7 @@ char	**ft_split(char *str)
 		start = i;
 		while (str[i] != '/')
 			i++;
-		ret[cnt] = ft_substr(str, start, i);
+		ret[cnt] = ft_substr_2(str, start, i);
 		cnt++;
 	}
 	ret[cnt] = NULL;

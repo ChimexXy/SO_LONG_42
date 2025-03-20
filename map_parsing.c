@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:50:11 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/19 14:52:07 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/20 21:26:05 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,7 @@ void	map_check1(x_game game, int fd)
 	{
 		printf("%s", game.map[x]);
 		x++;
-		game.map = get_next_line(fd);
+		game.map[x] = get_next_line(fd);
 	}
 }
 
-int main()
-{
-	x_game game;
-	int fd = open("t.txt", O_RDONLY);
-	map_check1(game, fd);
-}

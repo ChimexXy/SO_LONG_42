@@ -3,7 +3,7 @@ SRC = so_long.c utils1.c map_parsing.c  split.c \
 		
 
 OBJ = $(SRC:.c=.o)
-ARC = ft_printf/libftprintf.a get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+ARC = ft_printf/libftprintf.a
 
 all : $(NAME)
 
