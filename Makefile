@@ -1,5 +1,6 @@
 NAME = so_long
-SRC = so_long.c utils1.c map_parsing.c  split.c \
+SRC = so_long.c utils1.c map_check1.c  split.c get_next_line.c \
+		get_next_line_utils.c \
 		
 
 OBJ = $(SRC:.c=.o)
