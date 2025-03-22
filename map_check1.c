@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:50:11 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/22 02:17:59 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/22 18:13:28 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,18 +124,19 @@ void	map_checker_param(x_game *game)
 		x++;
 	}
 	printf ("%s\n", join_line);
-	while (join_line[i])
-	{
-		if (join_line[i] == 'E')
-			game->exit++;
-		if (join_line[i] == 'P')
-			game->player++;
-		if (join_line[i] == 'C')
-			game->coin++;
-		i++;
-	}
+	
 }
 
+	// while (join_line[i])
+	// {
+	// 	if (join_line[i] == 'E')
+	// 		game->exit++;
+	// 	if (join_line[i] == 'P')
+	// 		game->player++;
+	// 	if (join_line[i] == 'C')
+	// 		game->coin++;
+	// 	i++;
+	// }
 void count_line(char *av, x_game *game)
 {
 	int i;

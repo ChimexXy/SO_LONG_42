@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/22 02:16:52 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/22 18:13:45 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,15 @@
 #include "./ft_printf/ft_printf.h"
 
 typedef struct y_game{
-	char **map;
-	int len_line;
-	int wid_line;
-	int x;
-	int y;
-	int	coin;
-	int	player;
-	int exit;
+	char 	**map;
+	char 	*one_line_map;
+	int 	len_line;
+	int 	wid_line;
+	int 	x;
+	int 	y;
+	int		coin;
+	int		player;
+	int 	exit;
 	
 }	x_game;
 
