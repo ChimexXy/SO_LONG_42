@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:50:11 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/22 18:13:28 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/22 19:34:50 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,9 @@ void check_name(char *av1)
 	i = ft_strlen(name[j]);
 	if (name[j][i - 1] == 'r' && name[j][i - 2] == 'e'
 		&& name[j][i - 3] == 'b' && name[j][i - 4] == '.' && i > 4)
-		ft_printf("Work\n");
+		return;
 	else
-	{
-		ft_printf("Error\n");
 		exit (1);
-	}
 }
 
 void	map_read_line(char *av, x_game *game, int fd)
@@ -62,6 +59,25 @@ void	map_read_line(char *av, x_game *game, int fd)
 	{
 		x++;
 		game->map[x] = get_next_line(fd);
+	}
+}
+
+void	map_check_len(x_game *game)
+{
+	int	i;
+
+	i = 0;
+	if (!game->map[i])
+		exit(1);
+	game->len_line = ft_strlen2(game->map[i]);
+	while(game->map[i])
+	{
+		if(ft_strlen2(game->map[i]) != game->len_line)
+		{
+			ft_printf("len not exixt\n");
+			exit (1);
+		}
+		i++;
 	}
 }
 
@@ -91,25 +107,7 @@ void	wall_check(x_game *game)
 	}
 }
 
-void	map_check_len(x_game *game)
-{
-	int	i;
-
-	i = 0;
-	game->len_line = ft_strlen2(game->map[i]);
-	while(game->map[i])
-	{
-		if(ft_strlen2(game->map[i]) != game->len_line)
-		{
-			ft_printf("len not exixt\n");
-			exit (1);
-		}
-		i++;
-	}
-}
-
-
-void	map_checker_param(x_game *game)
+void	join_map(x_game *game)
 {
 	int		x;
 	int		i;
@@ -123,20 +121,52 @@ void	map_checker_param(x_game *game)
 		join_line = ft_strjoin(join_line, game->map[x]);
 		x++;
 	}
-	printf ("%s\n", join_line);
-	
+	game->one_line_map = join_line;
 }
 
-	// while (join_line[i])
-	// {
-	// 	if (join_line[i] == 'E')
-	// 		game->exit++;
-	// 	if (join_line[i] == 'P')
-	// 		game->player++;
-	// 	if (join_line[i] == 'C')
-	// 		game->coin++;
-	// 	i++;
-	// }
+void	map_checker_param(x_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (game->one_line_map[i])
+	{
+		if (game->one_line_map[i] == 'E')
+			game->exit++;
+		if (game->one_line_map[i] == 'P')
+			game->player++;
+		if (game->one_line_map[i] == 'C')
+			game->coin++;
+		i++;
+	}
+	if (game->exit != 1)
+		exit (1);
+	if	(game->player != 1)
+		exit (1);
+	if (game->coin < 1)
+		exit (1);
+}
+
+void	map_checker_param2(x_game *game)
+{
+	int	i;
+	char *str;
+
+	i = 0;
+	str = game->one_line_map;
+	while(str[i])
+	{
+		if (str[i] == '1' || str[i] == '0' || str[i] == 'P'
+			|| str[i] == 'E' || str[i] == 'C' || str[i] == '\n')
+			i++;
+		else
+		{
+			ft_printf("param check faild\n");
+			exit (1);
+		}
+	}
+}
+
 void count_line(char *av, x_game *game)
 {
 	int i;

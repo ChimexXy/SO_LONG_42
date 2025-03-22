@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/22 18:13:45 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/22 19:22:18 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ char	*ft_ret_line(char *line);
 char	*ft_remind_val(char *string);
 
 char	*ft_substr_2(char *str, int start, int end);
-char	**ft_split(char *str, char sep);
 int		ft_count_word(char *str, char sep);
 void	check_name(char *name);
 void	map_read_line(char *av, x_game *game, int fd);
@@ -59,8 +58,11 @@ void	map_check_len(x_game *game);
 void	count_line(char *av, x_game *game);
 void	wall_check(x_game *game);
 void	map_checker_param(x_game *game);
+void	map_checker_param2(x_game *game);
+void	join_map(x_game *game);
 
 //utils
+char	**ft_split(char *str, char sep);
 int		ft_strlen(char *str);
 int		ft_strlen2(char *str);
 void	*ft_calloc(size_t count, size_t size);
