@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:50:11 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/22 19:34:50 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/22 21:24:11 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,16 +93,27 @@ void	wall_check(x_game *game)
 	while (game->map[0][y])
 	{
 		if ((game->map[0][y] != '1') && (y < game->len_line))
+		{
+			ft_printf("first line wall error\n");
 			exit (1);
+		}
 		if (game->map[game->wid_line - 1][y] != '1' 
 				&& game->map[game->wid_line - 1][y])
-			exit (1);
+		{
+			if (game->map[game->wid_line - 1][y] == '\n')
+				return;
+			ft_printf("last line wall error\n");
+			exit (1);		
+		}
 		y++;
 	}
 	while (game->map[x] && x < game->wid_line)
 	{
 		if (game->map[x][0] != '1' || game->map[x][len - 1] != '1')
+		{
+			ft_printf("mind line wall error\n");
 			exit(1);
+		}
 		x++;
 	}
 }
