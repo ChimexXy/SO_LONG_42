@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/22 00:13:55 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/22 02:16:52 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ typedef struct y_game{
 	int wid_line;
 	int x;
 	int y;
+	int	coin;
+	int	player;
+	int exit;
+	
 }	x_game;
 
 // get_next_line
@@ -53,6 +57,7 @@ void	map_read_line(char *av, x_game *game, int fd);
 void	map_check_len(x_game *game);
 void	count_line(char *av, x_game *game);
 void	wall_check(x_game *game);
+void	map_checker_param(x_game *game);
 
 //utils
 int		ft_strlen(char *str);

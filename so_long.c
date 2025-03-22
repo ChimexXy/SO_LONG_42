@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:33:25 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/22 00:49:26 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/22 02:17:09 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int main(int ac, char **av)
 	map_read_line(av[1], game, fd);
 	map_check_len(game);
 	wall_check(game);
+	map_checker_param(game);
 	close(fd);
 }

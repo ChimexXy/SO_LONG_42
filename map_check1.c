@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:50:11 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/22 00:49:29 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/22 02:17:59 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,20 +69,26 @@ void	wall_check(x_game *game)
 {
 	int	x;
 	int y;
+	int	len;
 
 	x = 1;
 	y = 0;
-	while (game->map[1][y])
+	len = game->len_line;
+	while (game->map[0][y])
 	{
-		if (game->map[0][y] != '1' || game->map[0][y] != '\n')
-		{
-			printf("%c", game->map[0][y]);
-			ft_printf("Wall check failed\n");
+		if ((game->map[0][y] != '1') && (y < game->len_line))
 			exit (1);
-		}
+		if (game->map[game->wid_line - 1][y] != '1' 
+				&& game->map[game->wid_line - 1][y])
+			exit (1);
 		y++;
 	}
-	// pause();
+	while (game->map[x] && x < game->wid_line)
+	{
+		if (game->map[x][0] != '1' || game->map[x][len - 1] != '1')
+			exit(1);
+		x++;
+	}
 }
 
 void	map_check_len(x_game *game)
@@ -103,16 +109,29 @@ void	map_check_len(x_game *game)
 }
 
 
-void	map_checker(x_game *game)
+void	map_checker_param(x_game *game)
 {
+	int		x;
 	int		i;
 	char	*join_line;
 
+	x = 0;
 	i = 0;
 	join_line =	ft_calloc(1, 1);
-	while(i < game->wid_line)
+	while(x < game->wid_line)
 	{
-		join_line = ft_strjoin(join_line, game->map[i]);
+		join_line = ft_strjoin(join_line, game->map[x]);
+		x++;
+	}
+	printf ("%s\n", join_line);
+	while (join_line[i])
+	{
+		if (join_line[i] == 'E')
+			game->exit++;
+		if (join_line[i] == 'P')
+			game->player++;
+		if (join_line[i] == 'C')
+			game->coin++;
 		i++;
 	}
 }
