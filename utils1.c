@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:48:30 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/22 00:04:11 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/22 22:41:49 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,24 @@ void	ft_bzero(void *s, size_t n)
 		str[i] = 0;
 		i++;
 	}
+}
+
+void count_line(char *av, x_game *game)
+{
+	int i;
+	int fd1;
+	char *line;
+
+	fd1 = open(av, O_RDONLY);
+	line = get_next_line(fd1);
+	i = 0;
+	while(line)
+	{
+		i++;
+		line = get_next_line(fd1);
+	}
+	game->wid_line = i;
+	free(line);
+	close(fd1);
 }
 
