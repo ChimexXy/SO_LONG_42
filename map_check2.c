@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:43:50 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/23 00:37:04 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/23 23:18:30 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,38 @@ int	map_checker_param2(x_game *game)
 			write(1, "param check faild\n", 18);
 			return (0);
 		}
+	}
+	return (1);
+}
+
+int	check_new_map(x_game *game,char **map)
+{
+	int	x;
+	int	y;
+	int	c_check;
+	int	e_check;
+
+	y = 0;
+	c_check = 0;
+	e_check = 0;
+	while (map[y])
+	{
+		x = 0;
+		while(map[y][x])
+		{
+			if (map[y][x] == 'C')
+				c_check++;
+			if (map[y][x] == 'E')
+				e_check++;
+			x++;
+		}
+		y++;
+	}
+	printf("%d\n", e_check);
+	if (c_check > 1|| e_check > 0)
+	{
+		write(1, "Player can't passed to exit or take all coins\n", 46);
+		return (0);
 	}
 	return (1);
 }

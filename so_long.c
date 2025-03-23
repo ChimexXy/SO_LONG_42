@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:33:25 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/23 02:53:15 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/23 23:22:09 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,33 @@ int	map_checking(char *av, x_game *game, int fd)
 	}
 	if (!map_checker_param2(game))
 		return (0);
+	if (!map_flood(game))
+		return (0);
 	return (1);
+}
+
+void print_map(char **map_cpy)
+{
+	int x;
+	int y = 0;
+	while(map_cpy[y])
+	{
+		x = 0;
+		while(map_cpy[y][x])
+		{
+			printf("%c", map_cpy[y][x]);
+			x++;
+		}
+		y++;
+	}
 }
 
 int	map_flood(x_game *game)
 {
 	char	**map_cpy;
 	int		i;
+	int		x;
+	int		y;
 
 	map_cpy = malloc(sizeof(char *) * game->wid_line);
 	i = 0;
@@ -48,13 +68,20 @@ int	map_flood(x_game *game)
 		map_cpy[i] = ft_strdup(game->map[i]);
 		i++;
 	}
-	flood_fill(game, map_cpy);
+	map_cpy[i] = NULL;
+	set_player_position(game);
+	x = game->player_pos_x;
+	y = game->player_pos_y;
+	flood_fill(map_cpy, x, y);
+	if (!check_new_map(game, map_cpy))
+		return (0);
+	return (1);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int	fd;
-	x_game  *game;
+	int		fd;
+	x_game	*game;
 
 	if (ac != 2)
 	{
@@ -63,16 +90,10 @@ int main(int ac, char **av)
 	}
 	game = malloc(sizeof(x_game));
 	fd = open(av[1], O_RDONLY);
-	if (fd == -1)
+	if (fd == -1 || !map_checking(av[1], game, fd))
 	{
 		free(game);
 		exit (1);
 	}
-	if (!map_checking(av[1], game, fd))
-	{
-		free(game);
-		exit (1);
-	}
-	map_flood(game);
 	close(fd);
 }

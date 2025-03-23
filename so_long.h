@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/23 02:29:47 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/23 23:10:46 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,12 @@ int		join_map(x_game *game);
 int		map_checker_param(x_game *game);
 int		map_checker_param2(x_game *game);
 int		map_checking(char *av, x_game *game, int fd);
+int		check_new_map(x_game *game,char **map);
 
 //flood fill
-int		flood_fill(x_game *game, char **map);
+void	flood_fill(char **map, int x, int y);
 void	set_player_position(x_game *game);
+int		map_flood(x_game *game);
 
 //utils
 int		ft_strlen(char *str);

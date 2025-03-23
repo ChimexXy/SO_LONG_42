@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:47:06 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/23 02:25:28 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/23 20:13:32 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,26 @@ void	set_player_position(x_game *game)
 	}
 }
 
-int	flood_fill(x_game *game, char **map)
+void	flood_fill(char **map, int x, int y)
 {
-	// int	x;
-	// int	y;
-
-	// x = 0;
-	// y = 0;
-	set_player_position(game);
-	printf("%d , %d \n", game->player_pos_y, game->player_pos_x);
-	return (1);
+	if (map[y][x + 1] == '0' || map[y][x + 1] == 'C' || map[y][x + 1] == 'E')
+	{
+		map[y][x + 1] = '1';
+		flood_fill(map, x + 1, y);
+	}
+	if (map[y][x - 1] == '0' || map[y][x - 1] == 'C' || map[y][x - 1] == 'E')
+	{
+		map[y][x - 1] = '1';
+		flood_fill(map, x - 1, y);
+	}
+	if (map[y + 1][x] == '0' || map[y + 1][x] == 'C' || map[y + 1][x] == 'E')
+	{
+		map[y + 1][x] = '1';
+		flood_fill(map, x, y + 1);
+	}
+	if (map[y - 1][x] == '0' || map[y - 1][x] == 'C' || map[y - 1][x] == 'E')
+	{
+		map[y - 1][x] = '1';
+		flood_fill(map, x, y - 1);
+	}
 }
