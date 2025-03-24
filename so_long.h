@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/23 23:10:46 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/24 00:46:56 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <stdio.h>
-#include <mlx.h>
+#include "./MLX42/include/MLX42/MLX42.h"
 
 typedef struct y_game{
 	char 	**map;
@@ -78,5 +78,6 @@ int		ft_count_word(char *str, char sep);
 int		ft_strlen2(char *str);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
+void	free_double_pointer(char **array);
 
 #endif
