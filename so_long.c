@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:33:25 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/24 00:47:39 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/25 02:44:44 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	map_flood(x_game *game)
 	x = game->player_pos_x;
 	y = game->player_pos_y;
 	flood_fill(map_cpy, x, y);
-	if (!check_new_map(game, map_cpy))
+	if (!check_new_map(map_cpy))
 		return (0);
 	free_double_pointer(map_cpy);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:43:50 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/23 23:18:30 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/25 02:45:10 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	map_checker_param2(x_game *game)
 	return (1);
 }
 
-int	check_new_map(x_game *game,char **map)
+int	check_new_map(char **map)
 {
 	int	x;
 	int	y;
