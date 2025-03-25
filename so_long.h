@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/25 02:44:37 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/25 21:42:13 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <stdio.h>
-#include "./MLX42/include/MLX42/MLX42.h"
+#include "mlx/mlx.h"
 
 typedef struct mlx_game{
 	char **map;

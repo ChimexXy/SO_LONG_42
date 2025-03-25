@@ -6,7 +6,7 @@ LIBMLX	:= ./MLX42
 
 HEADERS	= -I $(LIBMLX)/include
 
-LIBS := -lglfw -L"/Users/ychedmi/.brew/opt/glfw/lib" $(LIBMLX)/build/libmlx42.a -pthread -ldl -lm -framework Cocoa -framework OpenGL -framework IOKit
+LIBS := -lglfw -L"/Users/mozahnou/.brew/opt/glfw/lib" $(LIBMLX)/build/libmlx42.a -pthread -ldl -lm -framework Cocoa -framework OpenGL -framework IOKit
 
 SRC = so_long.c utils1.c map_check1.c  split.c get_next_line.c \
 		get_next_line_utils.c map_check2.c flood_fill.c utils2.c\
