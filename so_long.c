@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:33:25 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/25 02:44:44 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/26 07:43:33 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,10 @@ int	map_flood(x_game *game)
 	x = game->player_pos_x;
 	y = game->player_pos_y;
 	flood_fill(map_cpy, x, y);
+	
 	if (!check_new_map(map_cpy))
 		return (0);
-	free_double_pointer(map_cpy);
+	// free_double_pointer(map_cpy);
 	return (1);
 }
 
@@ -83,6 +84,7 @@ int	main(int ac, char **av)
 {
 	int		fd;
 	x_game	*game;
+	mlx_s *mlx;
 
 	if (ac != 2)
 	{
@@ -90,11 +92,15 @@ int	main(int ac, char **av)
 		exit(1);
 	}
 	game = malloc(sizeof(x_game));
+	mlx = malloc(sizeof(mlx_s));
 	fd = open(av[1], O_RDONLY);
+
+	// pause();
 	if (fd == -1 || !map_checking(av[1], game, fd))
 	{
 		free(game);
 		exit (1);
 	}
+	window_open(mlx, game);
 	close(fd);
 }

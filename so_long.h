@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/25 21:42:13 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/26 07:12:57 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <stdio.h>
-#include "mlx/mlx.h"
+#include <mlx.h>
 
 typedef struct mlx_game{
 	char **map;
@@ -85,5 +85,8 @@ int		ft_strlen2(char *str);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 void	free_double_pointer(char **array);
+
+// mlx
+void	window_open(mlx_s *mlx, x_game *game);
 
 #endif

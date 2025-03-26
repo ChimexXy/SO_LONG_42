@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:43:50 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/25 18:16:36 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/26 07:26:16 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ int	map_checker_param(x_game *game)
 	int	i;
 
 	i = 0;
+	game->coin = 0;
+	game->exit = 0;
+	game->player = 0;
 	while (game->one_line_map[i])
 	{
 		if (game->one_line_map[i] == 'E')
