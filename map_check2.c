@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:43:50 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/26 07:26:16 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/27 03:51:20 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,6 @@ int	check_new_map(char **map)
 		}
 		y++;
 	}
-	printf("%d\n", e_check);
 	if (c_check > 1 || e_check > 0)
 	{
 		write(1, "Player can't passed to exit or take all coins\n", 46);

@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/26 07:12:57 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/27 01:34:41 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,16 @@ typedef struct mlx_game{
 	char **map;
 	void *mlx_init;
 	void *mlx_win;
+	char	*wall;
+	char	*coin;
+	char	*player;
+	char	*exit1;
+	char	*exit2;
+	void	*img_player;
+	void	*img_exit1;
+	void	*img_exit2;
+	int		img_len;
+	int		img_wid;
 } mlx_s;
 
 typedef struct y_game{
@@ -88,5 +98,8 @@ void	free_double_pointer(char **array);
 
 // mlx
 void	window_open(mlx_s *mlx, x_game *game);
+void	select_img(mlx_s *mlx);
+void	map_post(mlx_s *mlx);
+void	map_post2(mlx_s *mlx, int x, int y);
 
 #endif
