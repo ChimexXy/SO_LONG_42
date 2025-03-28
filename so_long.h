@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/27 01:34:41 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/28 05:26:19 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,15 @@ typedef struct mlx_game{
 	char	*player;
 	char	*exit1;
 	char	*exit2;
+	void	*img_wall;
+	void	*img_coin;
 	void	*img_player;
 	void	*img_exit1;
 	void	*img_exit2;
 	int		img_len;
 	int		img_wid;
+	int		x_p;
+	int		y_p;
 } mlx_s;
 
 typedef struct y_game{

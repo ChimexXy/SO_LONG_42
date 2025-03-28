@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:33:25 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/27 03:51:37 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/28 05:12:00 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ int	main(int ac, char **av)
 	mlx = malloc(sizeof(mlx_s));
 	fd = open(av[1], O_RDONLY);
 
-	// pause();
 	if (fd == -1 || !map_checking(av[1], game, fd))
 	{
 		free(game);

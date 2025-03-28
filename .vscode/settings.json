@@ -1,7 +1,8 @@
 {
 	"files.associations": {
 		"so_long.h": "c",
-		"sstream": "c"
+		"sstream": "c",
+		"fcntl.h": "c"
 	},
 	"cmake.sourceDirectory": "/Users/mozahnou/1337/cursuse_42/so_long/MLX42"
 }
