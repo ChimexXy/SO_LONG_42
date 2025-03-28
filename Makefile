@@ -4,7 +4,7 @@ CFLAGS	:= -Wextra -Wall -Werror #-Wunreachable-code -Ofast
 
 SRC = so_long.c utils1.c map_check1.c  split.c get_next_line.c \
 		get_next_line_utils.c map_check2.c flood_fill.c utils2.c\
-		open_window.c \
+		open_window.c palyer_move.c\
 
 OBJ = $(SRC:.c=.o)
 

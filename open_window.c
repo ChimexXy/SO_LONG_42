@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 01:16:51 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/28 05:44:24 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/28 08:35:53 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 void	window_open(mlx_s *mlx, x_game *game)
 {
 	mlx->map = game->map;
-	mlx->img_wid = 31;
-	mlx->img_len = 31;
 	mlx->x_p = game->player_pos_x;
 	mlx->y_p = game->player_pos_y;
+	mlx->count_coin = game->coin;
+	mlx->img_wid = 31;
+	mlx->img_len = 31;
 	mlx->mlx_init = mlx_init(); 
 	mlx->mlx_win = mlx_new_window(mlx->mlx_init, game->len_line * 32, game->wid_line * 32, "so_long");
 	select_img(mlx);
@@ -78,10 +79,12 @@ void	map_post2(mlx_s *mlx, int y, int x)
 	if (mlx->map[y][x] == '1')
 		mlx_put_image_to_window(mlx->mlx_init, mlx->mlx_win, mlx->img_wall,
 			x * 32, y * 32);
-
+	if (mlx->map[y][x] == 'Z')
+		mlx_put_image_to_window(mlx->mlx_init, mlx->mlx_win, mlx->img_exit2,
+			x * 32, y * 32);
 }
 
-void	select_key(int key, mlx_s *mlx)
+int	select_key(int key, mlx_s *mlx)
 {
 	if (key == 0)
 		move_left(mlx);
@@ -94,5 +97,6 @@ void	select_key(int key, mlx_s *mlx)
 	else if (key == 53)
 		exit(0);
 	else
-		write(1, "", 1);
+		write(1, "Invalid Key Pressed :(\n", 23);
+	return (0);
 }

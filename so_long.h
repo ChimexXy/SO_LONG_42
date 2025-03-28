@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/28 05:26:19 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/28 08:11:03 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 #include <mlx.h>
 
 typedef struct mlx_game{
-	char **map;
-	void *mlx_init;
-	void *mlx_win;
+	char 	**map;
+	void 	*mlx_init;
+	void 	*mlx_win;
 	char	*wall;
 	char	*coin;
 	char	*player;
@@ -40,6 +40,9 @@ typedef struct mlx_game{
 	void	*img_player;
 	void	*img_exit1;
 	void	*img_exit2;
+	int		count_coin;
+	// int		count_player;
+	// int 	count_exit;
 	int		img_len;
 	int		img_wid;
 	int		x_p;
@@ -105,5 +108,11 @@ void	window_open(mlx_s *mlx, x_game *game);
 void	select_img(mlx_s *mlx);
 void	map_post(mlx_s *mlx);
 void	map_post2(mlx_s *mlx, int x, int y);
+int		select_key(int key, mlx_s *mlx);
 
+// movement
+void	move_left(mlx_s *mlx);
+void	move_right(mlx_s *mlx);
+void	move_up(mlx_s *mlx);
+void	move_down(mlx_s *mlx);
 #endif
