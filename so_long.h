@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:32:27 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 08:50:01 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct mlt_game{
 	int		wid_line;
 	int		img_len;
 	int		img_wid;
+	int		mv_count;
 	int		x_p;
 	int		y_p;
 }	t_mlx;
@@ -100,6 +101,8 @@ int		ft_count_word(char *str, char sep);
 int		ft_strlen2(char *str);
 void	free_double_pointer(char **array);
 int		check_c_e(int c_check, int e_check);
+void	ft_putchar(char c);
+void	put_nbr(int n);
 
 // mlx
 void	window_open(t_mlx *mlx);

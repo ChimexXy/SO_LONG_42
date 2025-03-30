@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 01:16:51 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:32:03 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 08:49:08 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	window_open(t_mlx *mlx)
 {
+	mlx->mv_count = 0;
 	mlx->mlx_init = mlx_init(); 
 	mlx->mlx_win = mlx_new_window(mlx->mlx_init, mlx->len_line * 32,
 			mlx->wid_line * 32, "so_long");

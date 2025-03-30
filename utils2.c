@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 23:25:03 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:33:14 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 08:49:46 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,20 @@ int	check_c_e(int c_check, int e_check)
 		return (0);
 	}
 	return (1);
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	put_nbr(int n)
+{
+	if (n > 9)
+	{
+		put_nbr(n / 10);
+		put_nbr(n % 10);
+	}
+	else
+		ft_putchar(n + 48);
 }

@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 07:40:47 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:25:32 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 08:48:57 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ void	move_left(t_mlx *mlx)
 	mlx->map[mlx->y_p][mlx->x_p] = 'P';
 	check_exit_unlock(mlx);
 	mlx_clear_window(mlx->mlx_init, mlx->mlx_win);
+	mlx->mv_count++;
+	put_nbr(mlx->mv_count);
+	write(1, "\n", 1);
 	map_post(mlx);
 }
 
@@ -72,6 +75,9 @@ void	move_right(t_mlx *mlx)
 	mlx->map[mlx->y_p][mlx->x_p] = 'P';
 	check_exit_unlock(mlx);
 	mlx_clear_window(mlx->mlx_init, mlx->mlx_win);
+	mlx->mv_count++;
+	put_nbr(mlx->mv_count);
+	write(1, "\n", 1);
 	map_post(mlx);
 }
 
@@ -93,6 +99,9 @@ void	move_up(t_mlx *mlx)
 	mlx->map[mlx->y_p][mlx->x_p] = 'P';
 	check_exit_unlock(mlx);
 	mlx_clear_window(mlx->mlx_init, mlx->mlx_win);
+	mlx->mv_count++;
+	put_nbr(mlx->mv_count);
+	write(1, "\n", 1);
 	map_post(mlx);
 }
 
@@ -114,5 +123,8 @@ void	move_down(t_mlx *mlx)
 	mlx->map[mlx->y_p][mlx->x_p] = 'P';
 	check_exit_unlock(mlx);
 	mlx_clear_window(mlx->mlx_init, mlx->mlx_win);
+	mlx->mv_count++;
+	put_nbr(mlx->mv_count);
+	write(1, "\n", 1);
 	map_post(mlx);
 }
