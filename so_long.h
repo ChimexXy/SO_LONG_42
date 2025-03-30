@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 01:48:00 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 02:21:21 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,19 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
 
-#endif
+# endif
 
-
-#include <unistd.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <mlx.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <limits.h>
+# include <fcntl.h>
+# include <stdio.h>
+# include <mlx.h>
 
 typedef struct mlx_game{
-	char 	**map;
-	void 	*mlx_init;
-	void 	*mlx_win;
+	char	**map;
+	void	*mlx_init;
+	void	*mlx_win;
 	char	*wall;
 	char	*coin;
 	char	*player;
@@ -41,26 +40,26 @@ typedef struct mlx_game{
 	void	*img_exit1;
 	void	*img_exit2;
 	int		count_coin;
-	int 	len_line;
-	int 	wid_line;
+	int		len_line;
+	int		wid_line;
 	int		img_len;
 	int		img_wid;
 	int		x_p;
 	int		y_p;
-} mlx_s;
+}	mlx_s;
 
 typedef struct y_game{
-	char 	**map;
-	char 	*one_line_map;
-	int 	len_line;
-	int 	wid_line;
+	char	**map;
+	char	*one_line_map;
+	int		len_line;
+	int		wid_line;
 	int		player_pos_x;
 	int		player_pos_y;
 	int		coin;
 	int		player;
-	int 	exit;
+	int		exit;
 	int		flood_coin;
-	int 	flood_exit;
+	int		flood_exit;
 	int		x;
 	int		y;
 }	x_game;
@@ -114,4 +113,5 @@ void	move_right(mlx_s *mlx);
 void	move_up(mlx_s *mlx);
 void	move_down(mlx_s *mlx);
 void	select_things(mlx_s *mlx,x_game *game);
+
 #endif

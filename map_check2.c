@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:43:50 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 01:37:36 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 02:13:01 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	wall_check1(x_game *game)
 {
-	int y;
+	int	y;
 
 	y = 0;
 	while (game->map[0][y])
@@ -26,7 +26,7 @@ int	wall_check1(x_game *game)
 		{
 			if (game->map[game->wid_line - 1][y] == '\n')
 				return (1);
-			return (0);		
+			return (0);
 		}
 		y++;
 	}
@@ -37,7 +37,7 @@ int	wall_check1(x_game *game)
 
 int	wall_check2(x_game *game)
 {
-	int x;
+	int	x;
 	int	len;
 
 	x = 1;
@@ -71,7 +71,7 @@ int	map_checker_param(x_game *game)
 	}
 	if (game->exit != 1)
 		return (0);
-	if	(game->player != 1)
+	if (game->player != 1)
 		return (0);
 	if (game->coin < 1)
 		return (0);
@@ -80,12 +80,12 @@ int	map_checker_param(x_game *game)
 
 int	map_checker_param2(x_game *game)
 {
-	int	i;
-	char *str;
+	int		i;
+	char	*str;
 
 	i = 0;
 	str = game->one_line_map;
-	while(str[i])
+	while (str[i])
 	{
 		if (str[i] == '1' || str[i] == '0' || str[i] == 'P'
 			|| str[i] == 'E' || str[i] == 'C' || str[i] == '\n')
@@ -113,7 +113,7 @@ int	check_new_map(char **map)
 	while (map[y])
 	{
 		x = 0;
-		while(map[y][x])
+		while (map[y][x])
 		{
 			if (map[y][x] == 'C')
 				c_check++;

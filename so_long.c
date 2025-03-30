@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:33:25 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:04:21 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 02:18:43 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	map_flood(x_game *game)
 
 	map_cpy = malloc(sizeof(char *) * game->wid_line + 1);
 	i = 0;
-	while(game->map[i])
+	while (game->map[i])
 	{
 		map_cpy[i] = ft_strdup(game->map[i]);
 		i++;
@@ -63,17 +63,16 @@ int	map_flood(x_game *game)
 		return (0);
 	}
 	free_double_pointer(map_cpy);
-
 	return (1);
 }
 
-void	select_things(mlx_s *mlx,x_game *game)
+void	select_things(mlx_s *mlx, x_game *game)
 {
 	int	i;
 
 	mlx->map = malloc(sizeof(char *) * game->wid_line + 1);
 	i = 0;
-	while(game->map[i])
+	while (game->map[i])
 	{
 		mlx->map[i] = ft_strdup(game->map[i]);
 		i++;
@@ -92,11 +91,11 @@ int	main(int ac, char **av)
 {
 	int		fd;
 	x_game	*game;
-	mlx_s *mlx;
+	mlx_s	*mlx;
 
 	if (ac != 2)
 	{
-		write(1 ,"Number of arguments is not enought\n", 35);
+		write(1, "Number of arguments is not enought\n", 35);
 		exit(1);
 	}
 	game = malloc(sizeof(x_game));

@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 01:16:51 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:02:47 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 02:14:24 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	window_open(mlx_s *mlx)
 {
 	mlx->mlx_init = mlx_init(); 
-	mlx->mlx_win = mlx_new_window(mlx->mlx_init, mlx->len_line * 32, mlx->wid_line * 32, "so_long");
+	mlx->mlx_win = mlx_new_window(mlx->mlx_init, mlx->len_line * 32
+		, mlx->wid_line * 32, "so_long");
 	select_img(mlx);
 	map_post(mlx);
 	mlx_key_hook(mlx->mlx_win, select_key, mlx);

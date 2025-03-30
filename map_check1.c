@@ -6,15 +6,15 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:50:11 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 01:54:23 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 02:11:22 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int check_space(char *str)
+int	check_space(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -26,11 +26,11 @@ int check_space(char *str)
 	return (1);
 }
 
-int check_name(char *av1)
+int	check_name(char *av1)
 {
-	int i;
-	int	j;
-	char **name;
+	int		i;
+	int		j;
+	char	**name;
 
 	if (check_space(av1) == 0)
 		return (0);
@@ -55,7 +55,7 @@ int check_name(char *av1)
 
 int	map_read_line(char *av, x_game *game, int fd)
 {
-	int		x;
+	int	x;
 
 	x = 0;
 	count_line(av, game);
@@ -63,9 +63,9 @@ int	map_read_line(char *av, x_game *game, int fd)
 	if (!game->map)
 		return (0);
 	game->map[x] = get_next_line(fd);
-	if(!game->map[x])
+	if (!game->map[x])
 		return (0);
-	while(game->map[x])
+	while (game->map[x])
 	{
 		x++;
 		game->map[x] = get_next_line(fd);
@@ -81,9 +81,9 @@ int	map_check_len(x_game *game)
 	if (!game->map[i])
 		return (0);
 	game->len_line = ft_strlen2(game->map[i]);
-	while(game->map[i])
+	while (game->map[i])
 	{
-		if(ft_strlen2(game->map[i]) != game->len_line)
+		if (ft_strlen2(game->map[i]) != game->len_line)
 		{
 			write(1, "Map is not Rectangular\n", 23);
 			return (0);
@@ -101,11 +101,11 @@ int	join_map(x_game *game)
 
 	x = 0;
 	i = 0;
-	join_line =	malloc(1);
+	join_line = malloc(1);
 	if (!join_line)
 		return (0);
 	join_line[0] = '\0';
-	while(x < game->wid_line)
+	while (x < game->wid_line)
 	{
 		join_line = ft_strjoin(join_line, game->map[x]);
 		x++;
