@@ -6,13 +6,13 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 07:40:47 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:16:46 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 02:25:32 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_exit_unlock(mlx_s *mlx)
+void	check_exit_unlock(t_mlx *mlx)
 {
 	int	x;
 	int	y;
@@ -33,7 +33,7 @@ void	check_exit_unlock(mlx_s *mlx)
 	}
 }
 
-void	move_left(mlx_s *mlx)
+void	move_left(t_mlx *mlx)
 {
 	if (mlx->map[mlx->y_p][mlx->x_p - 1] == '1')
 		return ;
@@ -54,7 +54,7 @@ void	move_left(mlx_s *mlx)
 	map_post(mlx);
 }
 
-void	move_right(mlx_s *mlx)
+void	move_right(t_mlx *mlx)
 {
 	if (mlx->map[mlx->y_p][mlx->x_p + 1] == '1')
 		return ;
@@ -75,7 +75,7 @@ void	move_right(mlx_s *mlx)
 	map_post(mlx);
 }
 
-void	move_up(mlx_s *mlx)
+void	move_up(t_mlx *mlx)
 {
 	if (mlx->map[mlx->y_p - 1][mlx->x_p] == '1')
 		return ;
@@ -96,7 +96,7 @@ void	move_up(mlx_s *mlx)
 	map_post(mlx);
 }
 
-void	move_down(mlx_s *mlx)
+void	move_down(t_mlx *mlx)
 {
 	if (mlx->map[mlx->y_p + 1][mlx->x_p] == '1')
 		return ;

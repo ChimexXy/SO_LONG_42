@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 23:25:03 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 01:11:29 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 02:33:14 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,14 @@ void	free_double_pointer(char **array)
 	}
 	free(array); 
 	array = NULL;
+}
+
+int	check_c_e(int c_check, int e_check)
+{
+	if (c_check > 1 || e_check > 0)
+	{
+		write(1, "Player can't passed to exit or take all coins\n", 46);
+		return (0);
+	}
+	return (1);
 }

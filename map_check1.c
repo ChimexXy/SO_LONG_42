@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:50:11 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:11:22 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 02:24:54 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	check_name(char *av1)
 	return (1);
 }
 
-int	map_read_line(char *av, x_game *game, int fd)
+int	map_read_line(char *av, t_game *game, int fd)
 {
 	int	x;
 
@@ -73,7 +73,7 @@ int	map_read_line(char *av, x_game *game, int fd)
 	return (1);
 }
 
-int	map_check_len(x_game *game)
+int	map_check_len(t_game *game)
 {
 	int	i;
 
@@ -93,7 +93,7 @@ int	map_check_len(x_game *game)
 	return (1);
 }
 
-int	join_map(x_game *game)
+int	join_map(t_game *game)
 {
 	int		x;
 	int		i;

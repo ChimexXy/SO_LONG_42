@@ -6,13 +6,13 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:47:06 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/26 07:36:30 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 02:24:54 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	set_player_position(x_game *game)
+void	set_player_position(t_game *game)
 {
 	int	x;
 	int	y;

@@ -6,24 +6,24 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 01:16:51 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:14:24 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 02:32:03 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	window_open(mlx_s *mlx)
+void	window_open(t_mlx *mlx)
 {
 	mlx->mlx_init = mlx_init(); 
-	mlx->mlx_win = mlx_new_window(mlx->mlx_init, mlx->len_line * 32
-		, mlx->wid_line * 32, "so_long");
+	mlx->mlx_win = mlx_new_window(mlx->mlx_init, mlx->len_line * 32,
+			mlx->wid_line * 32, "so_long");
 	select_img(mlx);
 	map_post(mlx);
 	mlx_key_hook(mlx->mlx_win, select_key, mlx);
 	mlx_loop(mlx->mlx_init);
 }
 
-void	select_img(mlx_s *mlx)
+void	select_img(t_mlx *mlx)
 {
 	mlx->player = "./textures/player.xpm";
 	mlx->exit1 = "./textures/exit1.xpm";
@@ -31,18 +31,18 @@ void	select_img(mlx_s *mlx)
 	mlx->wall = "./textures/wall.xpm";
 	mlx->coin = "./textures/coin.xpm";
 	mlx->img_player = mlx_xpm_file_to_image(mlx->mlx_init, mlx->player,
-		&mlx->img_wid, &mlx->img_len);
+			&mlx->img_wid, &mlx->img_len);
 	mlx->img_exit1 = mlx_xpm_file_to_image(mlx->mlx_init, mlx->exit1,
-		&mlx->img_wid, &mlx->img_len);
+			&mlx->img_wid, &mlx->img_len);
 	mlx->img_exit2 = mlx_xpm_file_to_image(mlx->mlx_init, mlx->exit2,
-		&mlx->img_wid, &mlx->img_len);
+			&mlx->img_wid, &mlx->img_len);
 	mlx->img_wall = mlx_xpm_file_to_image(mlx->mlx_init, mlx->wall,
-		&mlx->img_wid, &mlx->img_len);
+			&mlx->img_wid, &mlx->img_len);
 	mlx->img_coin = mlx_xpm_file_to_image(mlx->mlx_init, mlx->coin,
-		&mlx->img_wid, &mlx->img_len);
+			&mlx->img_wid, &mlx->img_len);
 }
 
-void	map_post(mlx_s *mlx)
+void	map_post(t_mlx *mlx)
 {
 	int	x;
 	int	y;
@@ -60,7 +60,7 @@ void	map_post(mlx_s *mlx)
 	}
 }
 
-void	map_post2(mlx_s *mlx, int y, int x)
+void	map_post2(t_mlx *mlx, int y, int x)
 {
 	if (mlx->map[y][x] == 'P')
 		mlx_put_image_to_window(mlx->mlx_init, mlx->mlx_win, mlx->img_player,
@@ -79,7 +79,7 @@ void	map_post2(mlx_s *mlx, int y, int x)
 			x * 32, y * 32);
 }
 
-int	select_key(int key, mlx_s *mlx)
+int	select_key(int key, t_mlx *mlx)
 {
 	if (key == 0)
 		move_left(mlx);

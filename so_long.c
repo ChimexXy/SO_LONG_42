@@ -6,13 +6,13 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:33:25 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:18:43 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 02:25:32 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	map_checking(char *av, x_game *game, int fd)
+int	map_checking(char *av, t_game *game, int fd)
 {
 	if (!av)
 		return (0);
@@ -38,7 +38,7 @@ int	map_checking(char *av, x_game *game, int fd)
 	return (1);
 }
 
-int	map_flood(x_game *game)
+int	map_flood(t_game *game)
 {
 	char	**map_cpy;
 	int		i;
@@ -66,7 +66,7 @@ int	map_flood(x_game *game)
 	return (1);
 }
 
-void	select_things(mlx_s *mlx, x_game *game)
+void	select_things(t_mlx *mlx, t_game *game)
 {
 	int	i;
 
@@ -90,22 +90,22 @@ void	select_things(mlx_s *mlx, x_game *game)
 int	main(int ac, char **av)
 {
 	int		fd;
-	x_game	*game;
-	mlx_s	*mlx;
+	t_game	*game;
+	t_mlx	*mlx;
 
 	if (ac != 2)
 	{
 		write(1, "Number of arguments is not enought\n", 35);
 		exit(1);
 	}
-	game = malloc(sizeof(x_game));
+	game = malloc(sizeof(t_game));
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1 || !map_checking(av[1], game, fd))
 	{
 		free(game);
 		exit (1);
 	}
-	mlx = malloc(sizeof(mlx_s));
+	mlx = malloc(sizeof(t_mlx));
 	select_things(mlx, game);
 	free_double_pointer(game->map);
 	free(game);

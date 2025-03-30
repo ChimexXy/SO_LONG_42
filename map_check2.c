@@ -6,13 +6,13 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:43:50 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:13:01 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 02:28:19 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	wall_check1(x_game *game)
+int	wall_check1(t_game *game)
 {
 	int	y;
 
@@ -35,7 +35,7 @@ int	wall_check1(x_game *game)
 	return (1);
 }
 
-int	wall_check2(x_game *game)
+int	wall_check2(t_game *game)
 {
 	int	x;
 	int	len;
@@ -51,7 +51,7 @@ int	wall_check2(x_game *game)
 	return (1);
 }
 
-int	map_checker_param(x_game *game)
+int	map_checker_param(t_game *game)
 {
 	int	i;
 
@@ -78,7 +78,7 @@ int	map_checker_param(x_game *game)
 	return (1);
 }
 
-int	map_checker_param2(x_game *game)
+int	map_checker_param2(t_game *game)
 {
 	int		i;
 	char	*str;
@@ -123,10 +123,7 @@ int	check_new_map(char **map)
 		}
 		y++;
 	}
-	if (c_check > 1 || e_check > 0)
-	{
-		write(1, "Player can't passed to exit or take all coins\n", 46);
+	if (!(check_c_e(c_check, e_check)))
 		return (0);
-	}
 	return (1);
 }
