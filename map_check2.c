@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:43:50 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/27 03:51:20 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 01:37:36 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int	map_checker_param2(x_game *game)
 			return (0);
 		}
 	}
+	free(game->one_line_map);
 	return (1);
 }
 

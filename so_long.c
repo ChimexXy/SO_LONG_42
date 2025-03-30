@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:33:25 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 01:16:46 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 01:40:49 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,16 @@ int	map_flood(x_game *game)
 
 void	select_things(mlx_s *mlx,x_game *game)
 {
-	mlx->map = game->map;
+	int	i;
+
+	mlx->map = malloc(sizeof(char *) * game->wid_line + 1);
+	i = 0;
+	while(game->map[i])
+	{
+		mlx->map[i] = ft_strdup(game->map[i]);
+		i++;
+	}
+	mlx->map[i] = NULL;
 	mlx->x_p = game->player_pos_x;
 	mlx->y_p = game->player_pos_y;
 	mlx->count_coin = game->coin;
@@ -94,7 +103,6 @@ int	main(int ac, char **av)
 		exit(1);
 	}
 	game = malloc(sizeof(x_game));
-	mlx = malloc(sizeof(mlx_s));
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1 || !map_checking(av[1], game, fd))
 	{
@@ -102,10 +110,11 @@ int	main(int ac, char **av)
 		exit (1);
 	}
 	atexit(leaks);
+	mlx = malloc(sizeof(mlx_s));
 	select_things(mlx, game);
+	free_double_pointer(game->map);
+	free(game);
 	window_open(mlx);
 	free_double_pointer(game->map);
-	free_double_pointer(mlx->map);
 	close(fd);
-	(free(game), free(mlx));
 }

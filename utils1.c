@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:48:30 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/26 07:36:56 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 01:47:53 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,6 @@ int ft_strlen2(char *str)
 		i++;
 	}
 	return (i);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	unsigned char	*s;
-
-	s = malloc(count * size);
-	if (!s)
-		return (NULL);
-	ft_bzero(s, count * size);
-	return (s);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	size_t			i;
-	unsigned char	*str;
-
-	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
-	{
-		str[i] = 0;
-		i++;
-	}
 }
 
 void count_line(char *av, x_game *game)

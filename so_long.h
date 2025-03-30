@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 01:07:18 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 01:48:00 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,6 @@ char	**ft_split(char *str, char sep);
 char	*ft_substr_2(char *str, int start, int end);
 int		ft_count_word(char *str, char sep);
 int		ft_strlen2(char *str);
-void	*ft_calloc(size_t count, size_t size);
-void	ft_bzero(void *s, size_t n);
 void	free_double_pointer(char **array);
 
 // mlx

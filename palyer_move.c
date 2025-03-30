@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 07:40:47 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/28 08:40:12 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 01:26:55 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,11 @@ void	move_left(mlx_s *mlx)
 		mlx->count_coin--;
 	if (mlx->map[mlx->y_p][mlx->x_p - 1] == 'E' && mlx->count_coin > 0)
 		return;
-	if (mlx->map[mlx->y_p][mlx->x_p - 1] == 'Z') // Open exit
+	if (mlx->map[mlx->y_p][mlx->x_p - 1] == 'Z')
+	{
+		free_double_pointer(mlx->map);
 		exit(0);
+	}
 
 	mlx->map[mlx->y_p][mlx->x_p] = '0';
 	mlx->x_p -= 1;
@@ -61,7 +64,10 @@ void	move_right(mlx_s *mlx)
 	if (mlx->map[mlx->y_p][mlx->x_p + 1] == 'E' && mlx->count_coin > 0)
 		return;
 	if (mlx->map[mlx->y_p][mlx->x_p + 1] == 'Z')
+	{
+		free_double_pointer(mlx->map);
 		exit(0);
+	}
 
 	mlx->map[mlx->y_p][mlx->x_p] = '0';
 	mlx->x_p += 1;
@@ -81,7 +87,10 @@ void	move_up(mlx_s *mlx)
 	if (mlx->map[mlx->y_p - 1][mlx->x_p] == 'E' && mlx->count_coin > 0)
 		return;
 	if (mlx->map[mlx->y_p - 1][mlx->x_p] == 'Z')
+	{
+		free_double_pointer(mlx->map);
 		exit(0);
+	}
 
 	mlx->map[mlx->y_p][mlx->x_p] = '0';
 	mlx->y_p -= 1;
@@ -101,7 +110,10 @@ void	move_down(mlx_s *mlx)
 	if (mlx->map[mlx->y_p + 1][mlx->x_p] == 'E' && mlx->count_coin > 0)
 		return;
 	if (mlx->map[mlx->y_p + 1][mlx->x_p] == 'Z')
+	{
+		free_double_pointer(mlx->map);
 		exit(0);
+	}
 
 	mlx->map[mlx->y_p][mlx->x_p] = '0';
 	mlx->y_p += 1;

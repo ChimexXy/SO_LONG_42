@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:50:11 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 00:58:24 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 01:47:30 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,14 +101,16 @@ int	join_map(x_game *game)
 
 	x = 0;
 	i = 0;
-	join_line =	ft_calloc(1, 1);
+	join_line =	malloc(1);
 	if (!join_line)
 		return (0);
+	join_line[0] = '\0';
 	while(x < game->wid_line)
 	{
 		join_line = ft_strjoin(join_line, game->map[x]);
 		x++;
 	}
-	game->one_line_map = join_line;
+	game->one_line_map = ft_strdup(join_line);
+	free(join_line);
 	return (1);
 }

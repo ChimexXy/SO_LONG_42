@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 01:16:51 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 01:08:08 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 01:31:04 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,12 @@ int	select_key(int key, mlx_s *mlx)
 		move_up(mlx);
 	else if (key == 1)
 		move_down(mlx);
-	else if (key == 53 || key == 17)
+	else if (key == 53)
+	{
+		free_double_pointer(mlx->map);
+		free(mlx);
 		exit(0);
+	}
 	else
 		write(1, "Invalid Key Pressed :(\n", 23);
 	return (0);
