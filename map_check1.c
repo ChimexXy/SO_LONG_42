@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:50:11 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/23 00:29:28 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 00:58:24 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,17 @@ int check_name(char *av1)
 	i = ft_strlen(name[j]);
 	if (name[j][i - 1] == 'r' && name[j][i - 2] == 'e'
 		&& name[j][i - 3] == 'b' && name[j][i - 4] == '.' && i > 4)
+	{
+		free_double_pointer(name);
 		return (1);
+	}
 	else
 	{
 		write(1, "Name no valid :(\n", 17);
+		free_double_pointer(name);
 		return (0);
 	}
+	free_double_pointer(name);
 	return (1);
 }
 

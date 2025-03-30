@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/28 08:11:03 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 01:07:18 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ typedef struct mlx_game{
 	void	*img_exit1;
 	void	*img_exit2;
 	int		count_coin;
-	// int		count_player;
-	// int 	count_exit;
+	int 	len_line;
+	int 	wid_line;
 	int		img_len;
 	int		img_wid;
 	int		x_p;
@@ -104,7 +104,7 @@ void	ft_bzero(void *s, size_t n);
 void	free_double_pointer(char **array);
 
 // mlx
-void	window_open(mlx_s *mlx, x_game *game);
+void	window_open(mlx_s *mlx);
 void	select_img(mlx_s *mlx);
 void	map_post(mlx_s *mlx);
 void	map_post2(mlx_s *mlx, int x, int y);
@@ -115,4 +115,5 @@ void	move_left(mlx_s *mlx);
 void	move_right(mlx_s *mlx);
 void	move_up(mlx_s *mlx);
 void	move_down(mlx_s *mlx);
+void	select_things(mlx_s *mlx,x_game *game);
 #endif

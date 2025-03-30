@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:33:25 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/28 05:12:00 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 01:16:46 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,6 @@ int	map_checking(char *av, x_game *game, int fd)
 	return (1);
 }
 
-void print_map(char **map_cpy)
-{
-	int x;
-	int y = 0;
-	while(map_cpy[y])
-	{
-		x = 0;
-		while(map_cpy[y][x])
-		{
-			printf("%c", map_cpy[y][x]);
-			x++;
-		}
-		y++;
-	}
-}
-
 int	map_flood(x_game *game)
 {
 	char	**map_cpy;
@@ -61,7 +45,7 @@ int	map_flood(x_game *game)
 	int		x;
 	int		y;
 
-	map_cpy = malloc(sizeof(char *) * game->wid_line);
+	map_cpy = malloc(sizeof(char *) * game->wid_line + 1);
 	i = 0;
 	while(game->map[i])
 	{
@@ -73,13 +57,31 @@ int	map_flood(x_game *game)
 	x = game->player_pos_x;
 	y = game->player_pos_y;
 	flood_fill(map_cpy, x, y);
-	
 	if (!check_new_map(map_cpy))
+	{
+		free_double_pointer(map_cpy);
 		return (0);
-	// free_double_pointer(map_cpy);
+	}
+	free_double_pointer(map_cpy);
+
 	return (1);
 }
 
+void	select_things(mlx_s *mlx,x_game *game)
+{
+	mlx->map = game->map;
+	mlx->x_p = game->player_pos_x;
+	mlx->y_p = game->player_pos_y;
+	mlx->count_coin = game->coin;
+	mlx->len_line = game->len_line;
+	mlx->wid_line = game->wid_line;
+	mlx->img_wid = 31;
+	mlx->img_len = 31;
+}
+void leaks()
+{
+	system("leaks -q so_long");
+}
 int	main(int ac, char **av)
 {
 	int		fd;
@@ -94,12 +96,16 @@ int	main(int ac, char **av)
 	game = malloc(sizeof(x_game));
 	mlx = malloc(sizeof(mlx_s));
 	fd = open(av[1], O_RDONLY);
-
 	if (fd == -1 || !map_checking(av[1], game, fd))
 	{
 		free(game);
 		exit (1);
 	}
-	window_open(mlx, game);
+	atexit(leaks);
+	select_things(mlx, game);
+	window_open(mlx);
+	free_double_pointer(game->map);
+	free_double_pointer(mlx->map);
 	close(fd);
+	(free(game), free(mlx));
 }

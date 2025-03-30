@@ -6,22 +6,16 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 01:16:51 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/28 08:35:53 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 01:08:08 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	window_open(mlx_s *mlx, x_game *game)
+void	window_open(mlx_s *mlx)
 {
-	mlx->map = game->map;
-	mlx->x_p = game->player_pos_x;
-	mlx->y_p = game->player_pos_y;
-	mlx->count_coin = game->coin;
-	mlx->img_wid = 31;
-	mlx->img_len = 31;
 	mlx->mlx_init = mlx_init(); 
-	mlx->mlx_win = mlx_new_window(mlx->mlx_init, game->len_line * 32, game->wid_line * 32, "so_long");
+	mlx->mlx_win = mlx_new_window(mlx->mlx_init, mlx->len_line * 32, mlx->wid_line * 32, "so_long");
 	select_img(mlx);
 	map_post(mlx);
 	mlx_key_hook(mlx->mlx_win, select_key, mlx);
@@ -35,16 +29,21 @@ void	select_img(mlx_s *mlx)
 	mlx->exit2 = "./textures/exit2.xpm";
 	mlx->wall = "./textures/wall.xpm";
 	mlx->coin = "./textures/coin.xpm";
-	mlx->img_player = mlx_xpm_file_to_image(mlx->mlx_init, mlx->player,
-		&mlx->img_wid, &mlx->img_len);
-	mlx->img_exit1 = mlx_xpm_file_to_image(mlx->mlx_init, mlx->exit1,
-		&mlx->img_wid, &mlx->img_len);
-	mlx->img_exit2 = mlx_xpm_file_to_image(mlx->mlx_init, mlx->exit2,
-		&mlx->img_wid, &mlx->img_len);
-	mlx->img_wall = mlx_xpm_file_to_image(mlx->mlx_init, mlx->wall,
-		&mlx->img_wid, &mlx->img_len);
-	mlx->img_coin = mlx_xpm_file_to_image(mlx->mlx_init, mlx->coin,
-		&mlx->img_wid, &mlx->img_len);
+	if (!(mlx->img_player = mlx_xpm_file_to_image(mlx->mlx_init, mlx->player,
+		&mlx->img_wid, &mlx->img_len)))
+		exit(0);
+	if (!(mlx->img_exit1 = mlx_xpm_file_to_image(mlx->mlx_init, mlx->exit1,
+		&mlx->img_wid, &mlx->img_len)))
+		exit(0);
+	if (!(mlx->img_exit2 = mlx_xpm_file_to_image(mlx->mlx_init, mlx->exit2,
+		&mlx->img_wid, &mlx->img_len)))
+		exit(0);
+	if (!(mlx->img_wall = mlx_xpm_file_to_image(mlx->mlx_init, mlx->wall,
+		&mlx->img_wid, &mlx->img_len)))
+		exit(0);
+	if (!(mlx->img_coin = mlx_xpm_file_to_image(mlx->mlx_init, mlx->coin,
+		&mlx->img_wid, &mlx->img_len)))
+		exit(0);
 }
 
 void	map_post(mlx_s *mlx)
@@ -94,7 +93,7 @@ int	select_key(int key, mlx_s *mlx)
 		move_up(mlx);
 	else if (key == 1)
 		move_down(mlx);
-	else if (key == 53)
+	else if (key == 53 || key == 17)
 		exit(0);
 	else
 		write(1, "Invalid Key Pressed :(\n", 23);
