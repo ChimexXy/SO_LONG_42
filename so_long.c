@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:33:25 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 01:40:49 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 02:04:21 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,7 @@ void	select_things(mlx_s *mlx,x_game *game)
 	mlx->img_wid = 31;
 	mlx->img_len = 31;
 }
-void leaks()
-{
-	system("leaks -q so_long");
-}
+
 int	main(int ac, char **av)
 {
 	int		fd;
@@ -109,7 +106,6 @@ int	main(int ac, char **av)
 		free(game);
 		exit (1);
 	}
-	atexit(leaks);
 	mlx = malloc(sizeof(mlx_s));
 	select_things(mlx, game);
 	free_double_pointer(game->map);

@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:48:30 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 01:47:53 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 01:59:52 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void count_line(char *av, x_game *game)
 	while(line)
 	{
 		i++;
+		free(line);
 		line = get_next_line(fd1);
 	}
 	game->wid_line = i;

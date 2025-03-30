@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:50:11 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 01:47:30 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/03/30 01:54:23 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	map_check_len(x_game *game)
 
 	i = 0;
 	if (!game->map[i])
-		exit(1);
+		return (0);
 	game->len_line = ft_strlen2(game->map[i]);
 	while(game->map[i])
 	{
