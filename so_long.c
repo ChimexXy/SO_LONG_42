@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:33:25 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/04/05 13:55:44 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/04/05 14:09:51 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	map_checking(char *av, t_game *game, int fd)
 	if (!map_check_len(game))
 		return (0);
 	if (!wall_check1(game))
-		return (pstr("Wall check fail\n"),0);
+		return (pstr("Wall check fail\n"), 0);
 	if (!join_map(game))
 		return (0);
 	if (!map_checker_param(game))
@@ -109,7 +109,7 @@ int	main(int ac, char **av)
 	}
 	fd = open(av[1], O_RDONLY);
 	game = malloc(sizeof(t_game));
-	if(fd == -1 || !check_name(av[1]) || !game)
+	if (fd == -1 || !check_name(av[1]) || !game)
 	{
 		free(game);
 		exit(1);
