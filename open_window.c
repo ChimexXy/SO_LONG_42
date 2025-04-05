@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 01:16:51 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/04/05 14:00:00 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/04/05 14:06:17 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,23 @@ void	select_img(t_mlx *mlx)
 	sturct_img_sel(mlx);
 	mlx->img_player = mlx_xpm_file_to_image(mlx->mlx_init, mlx->player, 
 		&mlx->img_wid, &mlx->img_len);
-	if (!(mlx->img_player))
+	if (!mlx->img_player)
 		free_mlx(mlx);
-	if (!(mlx->img_exit1 = mlx_xpm_file_to_image(mlx->mlx_init, mlx->exit1,
-			&mlx->img_wid, &mlx->img_len)))
+	mlx->img_exit1 = mlx_xpm_file_to_image(mlx->mlx_init, mlx->exit1,
+		&mlx->img_wid, &mlx->img_len);
+	if (!mlx->img_exit1)
 		free_mlx(mlx);
-	if (!(mlx->img_exit2 = mlx_xpm_file_to_image(mlx->mlx_init, mlx->exit2,
-			&mlx->img_wid, &mlx->img_len)))
+	mlx->img_exit2 = mlx_xpm_file_to_image(mlx->mlx_init, mlx->exit2,
+		&mlx->img_wid, &mlx->img_len);
+	if (!mlx->img_exit2)
 		free_mlx(mlx);
-	if (!(mlx->img_wall = mlx_xpm_file_to_image(mlx->mlx_init, mlx->wall,
-			&mlx->img_wid, &mlx->img_len)))
+	mlx->img_wall = mlx_xpm_file_to_image(mlx->mlx_init, mlx->wall,
+		&mlx->img_wid, &mlx->img_len);
+	if (!mlx->img_wall)
 		free_mlx(mlx);
-	if (!(mlx->img_coin = mlx_xpm_file_to_image(mlx->mlx_init, mlx->coin,
-			&mlx->img_wid, &mlx->img_len)))
+	mlx->img_coin = mlx_xpm_file_to_image(mlx->mlx_init, mlx->coin,
+		&mlx->img_wid, &mlx->img_len);
+	if (!mlx->img_coin)
 		free_mlx(mlx);
 }
 
