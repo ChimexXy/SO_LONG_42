@@ -1,0 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_post.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/05 13:08:50 by mozahnou          #+#    #+#             */
+/*   Updated: 2025/04/05 13:09:01 by mozahnou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "so_long.h"
+
+void	map_post(t_mlx *mlx)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (mlx->map[y])
+	{
+		x = 0;
+		while (mlx->map[y][x])
+		{
+			map_post2(mlx, y, x);
+			x++;
+		}
+		y++;
+	}
+}
+
+void	map_post2(t_mlx *mlx, int y, int x)
+{
+	if (mlx->map[y][x] == 'P')
+		mlx_put_image_to_window(mlx->mlx_init, mlx->mlx_win, mlx->img_player,
+			x * 32, y * 32);
+	if (mlx->map[y][x] == 'E')
+		mlx_put_image_to_window(mlx->mlx_init, mlx->mlx_win, mlx->img_exit1,
+			x * 32, y * 32);
+	if (mlx->map[y][x] == 'C')
+		mlx_put_image_to_window(mlx->mlx_init, mlx->mlx_win, mlx->img_coin,
+			x * 32, y * 32);
+	if (mlx->map[y][x] == '1')
+		mlx_put_image_to_window(mlx->mlx_init, mlx->mlx_win, mlx->img_wall,
+			x * 32, y * 32);
+	if (mlx->map[y][x] == 'Z')
+		mlx_put_image_to_window(mlx->mlx_init, mlx->mlx_win, mlx->img_exit2,
+			x * 32, y * 32);
+}

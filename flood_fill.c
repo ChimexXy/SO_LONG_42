@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:47:06 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:24:54 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/04/05 13:06:52 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,24 @@ void	set_player_position(t_game *game)
 
 void	flood_fill(char **map, int x, int y)
 {
-	if (map[y][x + 1] == '0' || map[y][x + 1] == 'C' || map[y][x + 1] == 'E')
+	if (map[y][x + 1] == '0' || map[y][x + 1] == 'C')
 	{
-		map[y][x + 1] = '1';
+		map[y][x + 1] = '.';
 		flood_fill(map, x + 1, y);
 	}
-	if (map[y][x - 1] == '0' || map[y][x - 1] == 'C' || map[y][x - 1] == 'E')
+	if (map[y][x - 1] == '0' || map[y][x - 1] == 'C')
 	{
-		map[y][x - 1] = '1';
+		map[y][x - 1] = '.';
 		flood_fill(map, x - 1, y);
 	}
-	if (map[y + 1][x] == '0' || map[y + 1][x] == 'C' || map[y + 1][x] == 'E')
+	if (map[y + 1][x] == '0' || map[y + 1][x] == 'C')
 	{
-		map[y + 1][x] = '1';
+		map[y + 1][x] = '.';
 		flood_fill(map, x, y + 1);
 	}
-	if (map[y - 1][x] == '0' || map[y - 1][x] == 'C' || map[y - 1][x] == 'E')
+	if (map[y - 1][x] == '0' || map[y - 1][x] == 'C')
 	{
-		map[y - 1][x] = '1';
+		map[y - 1][x] = '.';
 		flood_fill(map, x, y - 1);
 	}
 }

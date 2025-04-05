@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:43:50 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:28:19 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/04/05 13:46:59 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ int	map_checker_param2(t_game *game)
 			i++;
 		else
 		{
-			write(1, "param check faild\n", 18);
+			pstr("Map Contains Wrong Param\n");
+			free(game->one_line_map);
 			return (0);
 		}
 	}
@@ -100,16 +101,14 @@ int	map_checker_param2(t_game *game)
 	return (1);
 }
 
-int	check_new_map(char **map)
+int	check_new_map(char **map, t_game *game)
 {
 	int	x;
 	int	y;
 	int	c_check;
-	int	e_check;
 
 	y = 0;
 	c_check = 0;
-	e_check = 0;
 	while (map[y])
 	{
 		x = 0;
@@ -117,13 +116,12 @@ int	check_new_map(char **map)
 		{
 			if (map[y][x] == 'C')
 				c_check++;
-			if (map[y][x] == 'E')
-				e_check++;
 			x++;
 		}
 		y++;
 	}
-	if (!(check_c_e(c_check, e_check)))
+	if (!(check_c(c_check)) 
+		|| !(check_exit_2(map, game->exit_x, game->exit_y)))
 		return (0);
 	return (1);
 }

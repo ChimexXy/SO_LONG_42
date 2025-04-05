@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:50:11 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:24:54 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/04/05 13:42:45 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,9 @@ int	check_name(char *av1)
 		free_double_pointer(name);
 		return (1);
 	}
-	else
-	{
-		write(1, "Name no valid :(\n", 17);
-		free_double_pointer(name);
-		return (0);
-	}
+	write(1, "Name no valid :(\n", 17);
 	free_double_pointer(name);
-	return (1);
+	return (0);
 }
 
 int	map_read_line(char *av, t_game *game, int fd)
@@ -85,7 +80,7 @@ int	map_check_len(t_game *game)
 	{
 		if (ft_strlen2(game->map[i]) != game->len_line)
 		{
-			write(1, "Map is not Rectangular\n", 23);
+			pstr("Map Not Rectangular :( \n");
 			return (0);
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 08:50:01 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/04/05 13:41:55 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ typedef struct y_game{
 	int		exit;
 	int		flood_coin;
 	int		flood_exit;
+	int		exit_x;
+	int		exit_y;
 	int		x;
 	int		y;
 }	t_game;
@@ -86,7 +88,11 @@ int		join_map(t_game *game);
 int		map_checker_param(t_game *game);
 int		map_checker_param2(t_game *game);
 int		map_checking(char *av, t_game *game, int fd);
-int		check_new_map(char **map);
+int		check_new_map(char **map, t_game *game);
+int		map_size(t_game *game);
+int		check_c(int c_check);
+void	set_exit_position(t_game *game);
+int		check_exit_2(char **map, int x, int y);
 
 //flood fill
 void	flood_fill(char **map, int x, int y);
@@ -100,9 +106,9 @@ char	*ft_substr_2(char *str, int start, int end);
 int		ft_count_word(char *str, char sep);
 int		ft_strlen2(char *str);
 void	free_double_pointer(char **array);
-int		check_c_e(int c_check, int e_check);
 void	ft_putchar(char c);
 void	put_nbr(int n);
+void	pstr(char *str);
 
 // mlx
 void	window_open(t_mlx *mlx);
@@ -110,6 +116,8 @@ void	select_img(t_mlx *mlx);
 void	map_post(t_mlx *mlx);
 void	map_post2(t_mlx *mlx, int x, int y);
 int		select_key(int key, t_mlx *mlx);
+int		close_window(t_mlx *mlx);
+void	free_mlx(t_mlx *mlx);
 
 // movement
 void	move_left(t_mlx *mlx);

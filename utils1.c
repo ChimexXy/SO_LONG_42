@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:48:30 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 02:33:04 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/04/05 13:41:30 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,18 @@ void	count_line(char *av, t_game *game)
 	game->wid_line = i;
 	free(line);
 	close(fd1);
+}
+
+void	pstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	write(1, "Error\n", 6);
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	write(1, "\n", 1);
 }

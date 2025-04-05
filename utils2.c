@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 23:25:03 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/03/30 08:49:46 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/04/05 13:50:23 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	free_double_pointer(char **array)
 	array = NULL;
 }
 
-int	check_c_e(int c_check, int e_check)
+int	check_c(int c_check)
 {
-	if (c_check > 1 || e_check > 0)
+	if (c_check > 0)
 	{
-		write(1, "Player can't passed to exit or take all coins\n", 46);
+		pstr("Player Can't Take All Coins :(\n");
 		return (0);
 	}
 	return (1);
@@ -52,4 +52,14 @@ void	put_nbr(int n)
 	}
 	else
 		ft_putchar(n + 48);
+}
+
+int	map_size(t_game *game)
+{
+	if (game->len_line > 80 || game->wid_line > 44)
+	{
+		pstr("The Size of Map Not Exist :(\n");
+		return (0);
+	}
+	return (1);
 }
