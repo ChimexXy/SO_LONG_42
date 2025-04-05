@@ -6,11 +6,20 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 13:08:50 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/04/05 13:09:01 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/04/05 14:00:03 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	sturct_img_sel(t_mlx *mlx)
+{
+	mlx->player = "./textures/player.xpm";
+	mlx->exit1 = "./textures/exit1.xpm";
+	mlx->exit2 = "./textures/exit2.xpm";
+	mlx->wall = "./textures/wall.xpm";
+	mlx->coin = "./textures/coin.xpm";
+}
 
 void	map_post(t_mlx *mlx)
 {

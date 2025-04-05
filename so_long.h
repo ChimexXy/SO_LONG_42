@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:22:04 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/04/05 13:41:55 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/04/05 14:01:18 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,12 +118,14 @@ void	map_post2(t_mlx *mlx, int x, int y);
 int		select_key(int key, t_mlx *mlx);
 int		close_window(t_mlx *mlx);
 void	free_mlx(t_mlx *mlx);
+void	sturct_img_sel(t_mlx *mlx);
+void	select_things(t_mlx *mlx, t_game *game);
 
 // movement
+void	check_exit_unlock(t_mlx *mlx);
 void	move_left(t_mlx *mlx);
 void	move_right(t_mlx *mlx);
 void	move_up(t_mlx *mlx);
 void	move_down(t_mlx *mlx);
-void	select_things(t_mlx *mlx, t_game *game);
 
 #endif

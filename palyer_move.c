@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 07:40:47 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/04/05 13:03:00 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/04/05 14:02:49 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	move_left(t_mlx *mlx)
 	if (mlx->map[mlx->y_p][mlx->x_p - 1] == 'Z')
 	{
 		free_double_pointer(mlx->map);
+		free(mlx);
 		exit(0);
 	}
 	mlx->map[mlx->y_p][mlx->x_p] = '0';
@@ -68,6 +69,7 @@ void	move_right(t_mlx *mlx)
 	if (mlx->map[mlx->y_p][mlx->x_p + 1] == 'Z')
 	{
 		free_double_pointer(mlx->map);
+		free(mlx);
 		exit(0);
 	}
 	mlx->map[mlx->y_p][mlx->x_p] = '0';
@@ -92,6 +94,7 @@ void	move_up(t_mlx *mlx)
 	if (mlx->map[mlx->y_p - 1][mlx->x_p] == 'Z')
 	{
 		free_double_pointer(mlx->map);
+		free(mlx);
 		exit(0);
 	}
 	mlx->map[mlx->y_p][mlx->x_p] = '0';
@@ -116,6 +119,7 @@ void	move_down(t_mlx *mlx)
 	if (mlx->map[mlx->y_p + 1][mlx->x_p] == 'Z')
 	{
 		free_double_pointer(mlx->map);
+		free(mlx);
 		exit(0);
 	}
 	mlx->map[mlx->y_p][mlx->x_p] = '0';

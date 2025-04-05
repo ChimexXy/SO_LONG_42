@@ -6,7 +6,7 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 06:33:25 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/04/05 13:44:53 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/04/05 13:55:44 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,6 @@ void	free_func(t_game *game)
 	exit(1);
 }
 
-void leaks()
-{
-	system("leaks -q so_long");
-}
-
 int	main(int ac, char **av)
 {
 	int		fd;
@@ -114,7 +109,6 @@ int	main(int ac, char **av)
 	}
 	fd = open(av[1], O_RDONLY);
 	game = malloc(sizeof(t_game));
-	atexit(leaks);
 	if(fd == -1 || !check_name(av[1]) || !game)
 	{
 		free(game);

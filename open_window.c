@@ -6,13 +6,13 @@
 /*   By: mozahnou <mozahnou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 01:16:51 by mozahnou          #+#    #+#             */
-/*   Updated: 2025/04/05 13:18:24 by mozahnou         ###   ########.fr       */
+/*   Updated: 2025/04/05 14:00:00 by mozahnou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void free_mlx(t_mlx *mlx)
+void	free_mlx(t_mlx *mlx)
 {
 	free_double_pointer(mlx->map);
 	free(mlx);
@@ -41,13 +41,10 @@ void	window_open(t_mlx *mlx)
 
 void	select_img(t_mlx *mlx)
 {
-	mlx->player = "./textures/player.xpm";
-	mlx->exit1 = "./textures/exit1.xpm";
-	mlx->exit2 = "./textures/exit2.xpm";
-	mlx->wall = "./textures/wall.xpm";
-	mlx->coin = "./textures/coin.xpm";
-	if (!(mlx->img_player = mlx_xpm_file_to_image(mlx->mlx_init, mlx->player,
-			&mlx->img_wid, &mlx->img_len)))
+	sturct_img_sel(mlx);
+	mlx->img_player = mlx_xpm_file_to_image(mlx->mlx_init, mlx->player, 
+		&mlx->img_wid, &mlx->img_len);
+	if (!(mlx->img_player))
 		free_mlx(mlx);
 	if (!(mlx->img_exit1 = mlx_xpm_file_to_image(mlx->mlx_init, mlx->exit1,
 			&mlx->img_wid, &mlx->img_len)))
